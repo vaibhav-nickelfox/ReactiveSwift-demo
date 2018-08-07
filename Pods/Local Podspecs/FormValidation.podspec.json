@@ -1,0 +1,26 @@
+{
+  "name": "FormValidation",
+  "version": "1.0.3",
+  "summary": "FormValidation",
+  "description": "FormValidation is a form validation while submiiting signup/login info.",
+  "homepage": "https://github.com/Nickelfox/FormValidation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Abhishek Thapliyal": "abhishek@nickelfox.com"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source": {
+    "git": "https://github.com/Nickelfox/FormValidation.git",
+    "tag": "1.0.3"
+  },
+  "source_files": [
+    "FormValidation",
+    "FormValidation/**/*.{swift}"
+  ],
+  "requires_arc": true
+}
