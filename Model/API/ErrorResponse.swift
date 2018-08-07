@@ -1,6 +1,6 @@
 //
 //  ErrorResponse.swift
-//  TemplateProject
+//  ReactiveSwift-Demo
 //
 //  Created by Ravindra Soni on 05/01/17.
 //  Copyright © 2017 Nickelfox. All rights reserved.
