@@ -9,5 +9,6 @@
 import Foundation
 
 struct APIConfig {
-    public static let apiBaseUrl = URL(string: "https://httpbin.org")!
+    public static let baseUrl = URL(string: "https://newsapi.org/v1")!
+    public static let apikey = "5b93c0cfcd50463fa96d3508c5108363"
 }

@@ -1,5 +1,5 @@
 //
-//  TestApiClient.swift
+//  ReactiveSwiftAPIClient.swift
 //  ReactiveSwift-Demo
 //
 //  Created by Ravindra Soni on 06/01/17.
@@ -9,14 +9,14 @@
 import Foundation
 import FoxAPIKit
 
-class TestAPIClient: APIClient<AuthHeaders, ErrorResponse> {
+class ReactiveSwiftAPIClient: APIClient<AuthHeaders, ErrorResponse> {
 
-	static let shared = TestAPIClient()
+	static let shared = ReactiveSwiftAPIClient()
     
     override init() {
         super.init()
         #if DEBUG
-        enableLogs = true
+        super.enableLogs = true
         #endif
     }
 	

@@ -12,9 +12,4 @@ import FoxAPIKit
 public typealias APICompletion<T> = (APIResult<T>) -> Void
 
 public class  DataModel {
-	
-	public static func test(completion: @escaping APICompletion<DemoObject>) {
-		TestAPIClient.shared.request(DemoRouter.demo, completion: completion)
-	}
-	
 }

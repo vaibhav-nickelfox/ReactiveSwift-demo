@@ -28,7 +28,7 @@ extension BaseRouter {
     }
 
     public var baseUrl: URL {
-        return APIConfig.apiBaseUrl
+        return APIConfig.baseUrl
     }
     
     public var headers: [String: String] {
