@@ -21,7 +21,7 @@ class NavigationBar: UINavigationBar {
 			self.backIndicatorTransitionMaskImage = backImage
 		}
 		self.barTintColor = barTintColor
-		self.tintColor = UIColor.white
+		self.tintColor = UIColor.black
 		self.applyShadow(apply: true)
 	}
 	

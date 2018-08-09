@@ -40,7 +40,16 @@ class CategoryViewModel {
 }
 
 extension CategoryViewModel {
+    
     func fetchSources() {
         self.disposable += self.fetchSourceAction.apply().start()
+    }
+    
+    var rowCount: Int {
+        return self.cellModels.value.count
+    }
+    
+    func cellModel(at indexPath: IndexPath) -> CategoryCellModel {
+        return self.cellModels.value[indexPath.row]
     }
 }

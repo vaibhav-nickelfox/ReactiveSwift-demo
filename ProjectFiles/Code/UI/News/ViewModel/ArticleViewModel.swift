@@ -45,4 +45,12 @@ extension ArticleViewModel {
     func fetchArticles(from source: Source) {
         self.disposable += self.fetchArticleAction.apply(source).start()
     }
+    
+    var rowCount: Int {
+        return self.cellModels.value.count
+    }
+    
+    func cellModel(at indexPath: IndexPath) -> ArticleCellModel {
+        return self.cellModels.value[indexPath.row]
+    }
 }

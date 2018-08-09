@@ -10,20 +10,20 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Category View Controller-->
+        <!--Categories-->
         <scene sceneID="3AA-4j-l1U">
             <objects>
                 <viewController id="JhN-Nk-nYV" customClass="CategoryViewController" customModule="ReactiveSwift_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XbK-5p-zN3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wTY-dB-LXK">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Vju-aB-2pK">
-                                <rect key="frame" x="169.5" y="315" width="37" height="37"/>
+                                <rect key="frame" x="169.5" y="283" width="37" height="37"/>
                                 <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -38,7 +38,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ArU-0g-3of"/>
                     </view>
-                    <navigationItem key="navigationItem" id="6Xe-aN-Y2D" customClass="StyledNavigationItem" customModule="ReactiveSwift_Demo" customModuleProvider="target"/>
+                    <navigationItem key="navigationItem" title="Categories" id="6Xe-aN-Y2D" customClass="StyledNavigationItem" customModule="ReactiveSwift_Demo" customModuleProvider="target"/>
                     <connections>
                         <outlet property="activityIndicatorView" destination="Vju-aB-2pK" id="hEn-eU-MKN"/>
                         <outlet property="tableView" destination="wTY-dB-LXK" id="NxJ-yF-Mnf"/>
@@ -49,16 +49,16 @@
             </objects>
             <point key="canvasLocation" x="1504.8" y="-54.422788605697157"/>
         </scene>
-        <!--Sources View Controller-->
+        <!--Sources-->
         <scene sceneID="saq-SS-hcO">
             <objects>
                 <viewController id="xQc-AJ-GFj" customClass="SourcesViewController" customModule="ReactiveSwift_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yc0-Ca-FZD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2fI-ob-TCP">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -71,50 +71,102 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="M4u-9E-nKm"/>
                     </view>
-                    <navigationItem key="navigationItem" id="kfo-7y-kRU" customClass="StyledNavigationItem" customModule="ReactiveSwift_Demo" customModuleProvider="target"/>
+                    <navigationItem key="navigationItem" title="Sources" id="kfo-7y-kRU" customClass="StyledNavigationItem" customModule="ReactiveSwift_Demo" customModuleProvider="target"/>
                     <connections>
                         <outlet property="tableView" destination="2fI-ob-TCP" id="BtV-ia-pxY"/>
-                        <segue destination="sju-TH-dfv" kind="show" id="GkJ-ci-WLL"/>
+                        <segue destination="sju-TH-dfv" kind="show" identifier="ArticleViewSegueID" id="GkJ-ci-WLL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ES8-0n-aRC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2308" y="-54"/>
         </scene>
-        <!--Articles View Controller-->
+        <!--News-->
         <scene sceneID="GEb-W6-jGw">
             <objects>
                 <viewController id="sju-TH-dfv" customClass="ArticlesViewController" customModule="ReactiveSwift_Demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B2O-o6-Umg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SMe-cL-sOz">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="B0N-fR-aah">
+                                <rect key="frame" x="169" y="283" width="37" height="37"/>
+                                <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SMe-cL-sOz" firstAttribute="leading" secondItem="Teq-03-Dcz" secondAttribute="leading" id="6bk-XI-Nbh"/>
+                            <constraint firstItem="B0N-fR-aah" firstAttribute="centerX" secondItem="B2O-o6-Umg" secondAttribute="centerX" id="Egt-oo-JBZ"/>
                             <constraint firstItem="SMe-cL-sOz" firstAttribute="top" secondItem="Teq-03-Dcz" secondAttribute="top" id="L7N-Iy-RZl"/>
                             <constraint firstItem="Teq-03-Dcz" firstAttribute="trailing" secondItem="SMe-cL-sOz" secondAttribute="trailing" id="LIm-SA-hwT"/>
+                            <constraint firstItem="B0N-fR-aah" firstAttribute="centerY" secondItem="B2O-o6-Umg" secondAttribute="centerY" id="vxG-Bk-ZH9"/>
                             <constraint firstItem="Teq-03-Dcz" firstAttribute="bottom" secondItem="SMe-cL-sOz" secondAttribute="bottom" id="wL3-XJ-NDz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Teq-03-Dcz"/>
                     </view>
-                    <navigationItem key="navigationItem" id="E4U-fB-x9d" customClass="StyledNavigationItem" customModule="ReactiveSwift_Demo" customModuleProvider="target"/>
+                    <navigationItem key="navigationItem" title="News" id="E4U-fB-x9d" customClass="StyledNavigationItem" customModule="ReactiveSwift_Demo" customModuleProvider="target"/>
+                    <connections>
+                        <outlet property="activityIndicatorView" destination="B0N-fR-aah" id="lkE-xd-BKe"/>
+                        <outlet property="tableView" destination="SMe-cL-sOz" id="ym5-H4-sGL"/>
+                        <segue destination="k0q-mp-csh" kind="show" identifier="WebViewSegueId" id="auQ-8U-aym"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="heH-ru-WSp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3130" y="-54"/>
+        </scene>
+        <!--News Web View Controller-->
+        <scene sceneID="XhQ-ru-sB0">
+            <objects>
+                <viewController id="k0q-mp-csh" customClass="NewsWebViewController" customModule="ReactiveSwift_Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pp8-0I-Yny">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xOc-Pp-2UK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Zoc-2R-TqN"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOG-X1-tx5">
+                                <rect key="frame" x="0.0" y="1" width="375" height="602"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xOc-Pp-2UK" firstAttribute="top" secondItem="G1m-Ss-3dL" secondAttribute="top" id="3h5-cP-jvh"/>
+                            <constraint firstItem="xOc-Pp-2UK" firstAttribute="leading" secondItem="Pp8-0I-Yny" secondAttribute="leading" id="Bui-U5-7vC"/>
+                            <constraint firstAttribute="trailing" secondItem="xOc-Pp-2UK" secondAttribute="trailing" id="OYU-Ff-a0m"/>
+                            <constraint firstItem="eOG-X1-tx5" firstAttribute="top" secondItem="xOc-Pp-2UK" secondAttribute="bottom" id="PQN-Wp-91y"/>
+                            <constraint firstItem="eOG-X1-tx5" firstAttribute="leading" secondItem="G1m-Ss-3dL" secondAttribute="leading" id="n25-k6-4HG"/>
+                            <constraint firstItem="G1m-Ss-3dL" firstAttribute="trailing" secondItem="eOG-X1-tx5" secondAttribute="trailing" id="vuN-mx-Ler"/>
+                            <constraint firstItem="G1m-Ss-3dL" firstAttribute="bottom" secondItem="eOG-X1-tx5" secondAttribute="bottom" id="xt9-kE-qaI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="G1m-Ss-3dL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Hz5-2Y-btE" customClass="StyledNavigationItem" customModule="ReactiveSwift_Demo" customModuleProvider="target"/>
+                    <connections>
+                        <outlet property="webViewContainer" destination="eOG-X1-tx5" id="dHt-rQ-Lbc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GaX-sb-KMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4004" y="-54"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dev-yo-Wt8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gHq-gc-rwC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0Sg-OZ-QO6" customClass="NavigationBar" customModule="ReactiveSwift_Demo" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="0Sg-OZ-QO6" customClass="NavigationBar" customModule="ReactiveSwift_Demo" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

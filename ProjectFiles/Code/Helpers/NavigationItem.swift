@@ -46,7 +46,7 @@ class StyledNavigationItem: UINavigationItem {
 		if let title = self.title {
 			self.attributedTitle = NSAttributedString(string: title, attributes: [
 				NSAttributedStringKey.font: titleFont,
-				NSAttributedStringKey.foregroundColor: UIColor.white
+				NSAttributedStringKey.foregroundColor: UIColor.black
 				])
 		} else {
 			self.attributedTitle = nil

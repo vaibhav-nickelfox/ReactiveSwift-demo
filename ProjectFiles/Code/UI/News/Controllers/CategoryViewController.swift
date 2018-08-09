@@ -27,7 +27,7 @@ class CategoryViewController: UIViewController {
         self.setupTableView()
         self.prepareCategoryModel()
     }
-
+    
     private func prepareCategoryModel() {
         self.categoryViewModel.fetchSources()
         self.categoryViewModel.disposable += self.activityIndicatorView.reactive.isHidden <~ self.categoryViewModel.loading.map { !$0 }
@@ -45,24 +45,35 @@ extension CategoryViewController: UITableViewDataSource {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.registerCell(CategoryTableCell.self)
+//        self.tableView.rowHeight = UITableViewAutomaticDimension
+//        self.tableView.estimatedRowHeight = self.tableView.bounds.height / 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.categoryViewModel.cellModels.value.count
+        return self.categoryViewModel.rowCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(CategoryTableCell.self, for: indexPath)
-        cell.item = self.categoryViewModel.cellModels.value[indexPath.item]
+        cell.item = self.categoryViewModel.cellModel(at: indexPath)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.bounds.height / 4
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+
 }
 
 //MARK: UITableViewDelegate
 extension CategoryViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let categoryCellModel = self.categoryViewModel.cellModels.value[indexPath.row]
+        let categoryCellModel = self.categoryViewModel.cellModel(at: indexPath)
         self.performSegue(withIdentifier: Segue.sourcesView, sender: categoryCellModel.sources)
     }
 }
