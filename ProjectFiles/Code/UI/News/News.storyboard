@@ -22,17 +22,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Vju-aB-2pK">
-                                <rect key="frame" x="169.5" y="283" width="37" height="37"/>
-                                <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Vju-aB-2pK" firstAttribute="centerX" secondItem="XbK-5p-zN3" secondAttribute="centerX" id="Edm-XA-9ue"/>
                             <constraint firstItem="ArU-0g-3of" firstAttribute="trailing" secondItem="wTY-dB-LXK" secondAttribute="trailing" id="KKk-vc-pkF"/>
                             <constraint firstItem="wTY-dB-LXK" firstAttribute="leading" secondItem="ArU-0g-3of" secondAttribute="leading" id="Tsr-bt-c2g"/>
-                            <constraint firstItem="Vju-aB-2pK" firstAttribute="centerY" secondItem="XbK-5p-zN3" secondAttribute="centerY" id="YKy-eC-coi"/>
                             <constraint firstItem="wTY-dB-LXK" firstAttribute="top" secondItem="ArU-0g-3of" secondAttribute="top" id="jac-aI-IUt"/>
                             <constraint firstItem="ArU-0g-3of" firstAttribute="bottom" secondItem="wTY-dB-LXK" secondAttribute="bottom" id="mYJ-Da-fxk"/>
                         </constraints>
@@ -40,7 +34,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Categories" id="6Xe-aN-Y2D" customClass="StyledNavigationItem" customModule="ReactiveSwift_Demo" customModuleProvider="target"/>
                     <connections>
-                        <outlet property="activityIndicatorView" destination="Vju-aB-2pK" id="hEn-eU-MKN"/>
                         <outlet property="tableView" destination="wTY-dB-LXK" id="NxJ-yF-Mnf"/>
                         <segue destination="xQc-AJ-GFj" kind="show" identifier="SourcesViewSegueId" id="Mkl-p7-YyN"/>
                     </connections>
@@ -93,25 +86,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="B0N-fR-aah">
-                                <rect key="frame" x="169" y="283" width="37" height="37"/>
-                                <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="SMe-cL-sOz" firstAttribute="leading" secondItem="Teq-03-Dcz" secondAttribute="leading" id="6bk-XI-Nbh"/>
-                            <constraint firstItem="B0N-fR-aah" firstAttribute="centerX" secondItem="B2O-o6-Umg" secondAttribute="centerX" id="Egt-oo-JBZ"/>
                             <constraint firstItem="SMe-cL-sOz" firstAttribute="top" secondItem="Teq-03-Dcz" secondAttribute="top" id="L7N-Iy-RZl"/>
                             <constraint firstItem="Teq-03-Dcz" firstAttribute="trailing" secondItem="SMe-cL-sOz" secondAttribute="trailing" id="LIm-SA-hwT"/>
-                            <constraint firstItem="B0N-fR-aah" firstAttribute="centerY" secondItem="B2O-o6-Umg" secondAttribute="centerY" id="vxG-Bk-ZH9"/>
                             <constraint firstItem="Teq-03-Dcz" firstAttribute="bottom" secondItem="SMe-cL-sOz" secondAttribute="bottom" id="wL3-XJ-NDz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Teq-03-Dcz"/>
                     </view>
                     <navigationItem key="navigationItem" title="News" id="E4U-fB-x9d" customClass="StyledNavigationItem" customModule="ReactiveSwift_Demo" customModuleProvider="target"/>
                     <connections>
-                        <outlet property="activityIndicatorView" destination="B0N-fR-aah" id="lkE-xd-BKe"/>
                         <outlet property="tableView" destination="SMe-cL-sOz" id="ym5-H4-sGL"/>
                         <segue destination="k0q-mp-csh" kind="show" identifier="WebViewSegueId" id="auQ-8U-aym"/>
                     </connections>

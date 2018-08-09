@@ -14,6 +14,7 @@ class CategoryViewModel {
     
     var loading = MutableProperty<Bool>(false)
     var cellModels = MutableProperty<[CategoryCellModel]>([])
+    var error = MutableProperty<NewsError?>(nil)
     var disposable = CompositeDisposable([])
     
     init() {
@@ -22,7 +23,7 @@ class CategoryViewModel {
             self.sources = sources
         })
         self.disposable += self.fetchSourceAction.errors.observeValues({ error in
-            print(error) //TODO
+            self.error.value = error
         })
     }
     
@@ -40,6 +41,10 @@ class CategoryViewModel {
 }
 
 extension CategoryViewModel {
+    
+    func fetchSources1() -> SignalProducer<[Source], ActionError<NewsError>> {
+        return self.fetchSourceAction.apply()
+    }
     
     func fetchSources() {
         self.disposable += self.fetchSourceAction.apply().start()

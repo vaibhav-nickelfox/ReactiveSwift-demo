@@ -18,7 +18,6 @@ class CategoryViewController: UIViewController {
     }
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     
     var categoryViewModel = CategoryViewModel()
     
@@ -29,11 +28,18 @@ class CategoryViewController: UIViewController {
     }
     
     private func prepareCategoryModel() {
+        let disposable = self.categoryViewModel.disposable
         self.categoryViewModel.fetchSources()
-        self.categoryViewModel.disposable += self.activityIndicatorView.reactive.isHidden <~ self.categoryViewModel.loading.map { !$0 }
-        self.categoryViewModel.disposable += self.categoryViewModel.cellModels.signal.observeValues({ _ in
+        disposable += self.view.reactive.showLoader <~ self.categoryViewModel.loading.map { $0 }
+        disposable += self.categoryViewModel.cellModels.signal.observeValues({ _ in
             self.tableView.reloadData()
         })
+        disposable += self.categoryViewModel.error.signal.observeValues({ error in
+            guard let error = error else { return }
+            self.handleError(error)
+        })
+        
+//        self.categoryViewModel.disposable += self.categoryViewModel.cellModels.producer.on(starting: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, started: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, event: <#T##((Signal<[CategoryCellModel], NoError>.Event) -> Void)?##((Signal<[CategoryCellModel], NoError>.Event) -> Void)?##(Signal<[CategoryCellModel], NoError>.Event) -> Void#>, failed: <#T##((NoError) -> Void)?##((NoError) -> Void)?##(NoError) -> Void#>, completed: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, interrupted: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, terminated: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, disposed: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, value: <#T##(([CategoryCellModel]) -> Void)?##(([CategoryCellModel]) -> Void)?##([CategoryCellModel]) -> Void#>)
     }
 }
 
@@ -45,8 +51,6 @@ extension CategoryViewController: UITableViewDataSource {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.registerCell(CategoryTableCell.self)
-//        self.tableView.rowHeight = UITableViewAutomaticDimension
-//        self.tableView.estimatedRowHeight = self.tableView.bounds.height / 4
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

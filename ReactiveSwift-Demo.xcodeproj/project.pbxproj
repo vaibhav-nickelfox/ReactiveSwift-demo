@@ -35,6 +35,7 @@
 		6DCD50B91E1E6C7900A9469B /* Analytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD50B61E1E6C7900A9469B /* Analytics.swift */; };
 		6DCD50BA1E1E6C7900A9469B /* CrashLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD50B81E1E6C7900A9469B /* CrashLogger.swift */; };
 		6DCD50BD1E1E6DFA00A9469B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DCD50BC1E1E6DFA00A9469B /* DataModel.swift */; };
+		800BCF75211C3F6100AED72D /* UIViewController+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800BCF74211C3F6100AED72D /* UIViewController+Helper.swift */; };
 		8018BBD82119DE4F002E516E /* UIProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8018BBD72119DE4F002E516E /* UIProtocols.swift */; };
 		8018BBDA211AB760002E516E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8018BBD9211AB760002E516E /* Article.swift */; };
 		8018BBDC211AB8EB002E516E /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8018BBDB211AB8EB002E516E /* Source.swift */; };
@@ -142,6 +143,7 @@
 		6DCD50B81E1E6C7900A9469B /* CrashLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrashLogger.swift; sourceTree = "<group>"; };
 		6DCD50BC1E1E6DFA00A9469B /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataModel.swift; path = DataModel/DataModel.swift; sourceTree = "<group>"; };
 		7EEE9205FBB0EC796E89C607 /* Pods-Model.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Model.release.xcconfig"; path = "Pods/Target Support Files/Pods-Model/Pods-Model.release.xcconfig"; sourceTree = "<group>"; };
+		800BCF74211C3F6100AED72D /* UIViewController+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Helper.swift"; path = "Helpers/UIViewController+Helper.swift"; sourceTree = "<group>"; };
 		8018BBD72119DE4F002E516E /* UIProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIProtocols.swift; path = Helpers/UIProtocols.swift; sourceTree = "<group>"; };
 		8018BBD9211AB760002E516E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		8018BBDB211AB8EB002E516E /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				6D1659B71E0685950032395D /* Date+Helper.swift */,
 				6D1659B91E0686710032395D /* AppUtility.swift */,
 				8018BBD72119DE4F002E516E /* UIProtocols.swift */,
+				800BCF74211C3F6100AED72D /* UIViewController+Helper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -748,6 +751,7 @@
 				6D1659A31E0676AA0032395D /* ViewController.swift in Sources */,
 				6D1659AE1E0677830032395D /* Colors.swift in Sources */,
 				8018BBEF211AD9D8002E516E /* CategoryViewController.swift in Sources */,
+				800BCF75211C3F6100AED72D /* UIViewController+Helper.swift in Sources */,
 				8018BC03211AE123002E516E /* ArticleCellModel.swift in Sources */,
 				6D1659B61E0684E50032395D /* UIView+Helper.swift in Sources */,
 				8018BBFE211ADD47002E516E /* TableViewCell.swift in Sources */,

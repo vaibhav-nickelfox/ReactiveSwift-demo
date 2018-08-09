@@ -14,6 +14,7 @@ class ArticleViewModel {
     
     var loading = MutableProperty<Bool>(false)
     var cellModels = MutableProperty<[ArticleCellModel]>([])
+    var error = MutableProperty<NewsError?>(nil)
     var disposable = CompositeDisposable([])
     
     deinit {
@@ -26,7 +27,7 @@ class ArticleViewModel {
             self.articles = articles
         })
         self.disposable += self.fetchArticleAction.errors.observeValues({ error in
-            print(error) //TODO
+            self.error.value = error
         })
     }
     
@@ -37,7 +38,7 @@ class ArticleViewModel {
     }
     
     private let fetchArticleAction = Action { (source: Source) -> SignalProducer<[Article], NewsError> in
-        return Article.fetchSources(from: source)
+        return Article.fetchArticles(from: source)
     }
 }
 

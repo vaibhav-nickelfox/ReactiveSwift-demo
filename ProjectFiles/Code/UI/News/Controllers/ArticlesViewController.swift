@@ -18,7 +18,6 @@ class ArticlesViewController: UIViewController {
     }
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var activityIndicatorView: UIActivityIndicatorView!
     
     var source: Source!
     var articleViewModel = ArticleViewModel()
@@ -30,10 +29,15 @@ class ArticlesViewController: UIViewController {
     }
     
     private func prepareArticleModel() {
-        self.articleViewModel.fetchArticles(from: self.source)        
-        self.articleViewModel.disposable += self.activityIndicatorView.reactive.isAnimating <~ self.articleViewModel.loading.map { $0 }
-        self.articleViewModel.disposable += self.articleViewModel.cellModels.signal.observeValues({ _ in
+        let disposable = self.articleViewModel.disposable
+        self.articleViewModel.fetchArticles(from: self.source)
+        disposable += self.view.reactive.showLoader <~ self.articleViewModel.loading.map { $0 }
+        disposable += self.articleViewModel.cellModels.signal.observeValues({ _ in
             self.tableView.reloadData()
+        })
+        disposable += self.articleViewModel.error.signal.observeValues({ error in
+            guard let error = error else { return }
+            self.handleError(error)
         })
     }
 }

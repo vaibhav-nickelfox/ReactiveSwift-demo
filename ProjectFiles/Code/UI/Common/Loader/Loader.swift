@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReactiveSwift
 import MBProgressHUD
 
 class Loader {
@@ -30,4 +31,16 @@ extension UIViewController {
 		Loader.hide(for: self.view, animated: animated)
 	}
 	
+}
+
+extension Reactive where Base: UIView {
+    public var showLoader: BindingTarget<Bool> {
+        return makeBindingTarget({ (view, showLoader) in
+            if showLoader {
+                Loader.showAdded(to: view, animated: true)
+            } else {
+                Loader.hide(for: view, animated: true)
+            }
+        })
+    }
 }
