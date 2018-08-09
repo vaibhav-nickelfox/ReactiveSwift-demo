@@ -12,7 +12,7 @@ import FoxAPIKit
 
 extension Source {
     
-    public static func fetchArticles() -> SignalProducer<[Source], NewsError> {
+    public static func fetchSources() -> SignalProducer<[Source], NewsError> {
         return SignalProducer.init({ (observer, lifetime) in
             ReactiveSwiftAPIClient.shared.request(NewsAPIRouter.sources) { (response: APIResult<ListResponse<Source>>) in
                 switch response {

@@ -20,22 +20,23 @@ public class Category {
     public static func categorise(sources: [Source]) -> [Category] {
         var categories: [Category] = []
         for source in sources {
-            if let index = self.indexOfCategory(key: source.category, in: categories) {
+            if let index = indexOfCategory(key: source.category, in: categories) {
                 let foundCategory = categories[index]
                 foundCategory.sources.append(source)
             } else {
-                categories.append(Category(key: source.category, sources: sources))
+                categories.append(Category(key: source.category, sources: [source]))
             }
         }
         return categories
     }
-    
-    private static func indexOfCategory(key: String, in categories: [Category]) -> Int? {
-        var index = 0
-        for category in categories {
-            if key == category.key { return index }
-            index += 1
-        }
-        return nil
-    }
 }
+
+private func indexOfCategory(key: String, in categories: [Category]) -> Int? {
+    var index = 0
+    for category in categories {
+        if key == category.key { return index }
+        index += 1
+    }
+    return nil
+}
+
