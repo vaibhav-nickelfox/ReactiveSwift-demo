@@ -16,7 +16,7 @@ class ReactiveSwiftAPIClient: APIClient<AuthHeaders, ErrorResponse> {
     override init() {
         super.init()
         #if DEBUG
-        super.enableLogs = true
+        super.enableLogs = false
         #endif
     }
 	

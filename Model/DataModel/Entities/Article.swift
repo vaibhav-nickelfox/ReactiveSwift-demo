@@ -36,7 +36,7 @@ extension Article: JSONParseable {
                            description: json["description"]^!,
                            date: json["publishedAt"]^!,
                            urlLink: json["url"]^!,
-                           imageLink: json["title"]^!,
+                           imageLink: json["urlToImage"]^!,
                            source: "")
     }
 }

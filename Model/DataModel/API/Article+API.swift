@@ -12,7 +12,7 @@ import ReactiveSwift
 
 extension Article {
     
-    public static func fetchSources(from source: Source) -> SignalProducer<[Article], NewsError> {
+    public static func fetchArticles(from source: Source) -> SignalProducer<[Article], NewsError> {
         return SignalProducer.init({ (observer, lifetime) in
             
             ReactiveSwiftAPIClient.shared.request(NewsAPIRouter.articles(source: source.id)) { (response: APIResult<ListResponse<Article>>) in
