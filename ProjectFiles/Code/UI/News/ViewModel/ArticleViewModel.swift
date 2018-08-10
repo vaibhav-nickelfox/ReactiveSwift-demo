@@ -10,6 +10,23 @@ import Foundation
 import Model
 import ReactiveSwift
 
+enum SortBy {
+    case top
+    case latest
+    case popular
+    
+    var value: String {
+        switch self {
+        case .top:
+            return "top"
+        case .latest:
+            return "latest"
+        case .popular:
+            return "popular"
+        }
+    }
+}
+
 class ArticleViewModel {
     
     var loading = MutableProperty<Bool>(false)
@@ -37,14 +54,14 @@ class ArticleViewModel {
         }
     }
     
-    private let fetchArticleAction = Action { (source: Source) -> SignalProducer<[Article], NewsError> in
-        return Article.fetchArticles(from: source)
+    private let fetchArticleAction = Action { (source: Source, sortBy: SortBy) -> SignalProducer<[Article], NewsError> in
+        return Article.fetchArticles(from: source, sortBy: sortBy.value)
     }
 }
 
 extension ArticleViewModel {
-    func fetchArticles(from source: Source) {
-        self.disposable += self.fetchArticleAction.apply(source).start()
+    func fetchArticles(from source: Source, sortBy: SortBy) {
+        self.disposable += self.fetchArticleAction.apply((source, sortBy)).start()
     }
     
     var rowCount: Int {

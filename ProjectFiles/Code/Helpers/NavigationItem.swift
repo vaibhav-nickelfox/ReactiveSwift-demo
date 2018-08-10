@@ -38,7 +38,7 @@ class StyledNavigationItem: UINavigationItem {
 	private func configureFontsForBarButtonItem(item: UIBarButtonItem) {
 		item.setTitleTextAttributes([
 			NSAttributedStringKey.font: barButtonFont,
-			NSAttributedStringKey.foregroundColor: UIColor.white
+			NSAttributedStringKey.foregroundColor: UIColor.black
 			], for: .normal)
 	}
 	

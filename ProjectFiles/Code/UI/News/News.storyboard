@@ -96,7 +96,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Teq-03-Dcz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="News" id="E4U-fB-x9d" customClass="StyledNavigationItem" customModule="ReactiveSwift_Demo" customModuleProvider="target"/>
+                    <navigationItem key="navigationItem" title="News" id="E4U-fB-x9d" customClass="StyledNavigationItem" customModule="ReactiveSwift_Demo" customModuleProvider="target">
+                        <barButtonItem key="rightBarButtonItem" title="Sort by" id="zUP-Qv-icH">
+                            <connections>
+                                <action selector="handleSortByTapped:" destination="sju-TH-dfv" id="edy-54-ZW7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="SMe-cL-sOz" id="ym5-H4-sGL"/>
                         <segue destination="k0q-mp-csh" kind="show" identifier="WebViewSegueId" id="auQ-8U-aym"/>

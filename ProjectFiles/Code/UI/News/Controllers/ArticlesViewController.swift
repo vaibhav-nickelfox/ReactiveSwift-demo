@@ -10,6 +10,7 @@ import UIKit
 import Model
 import ReactiveCocoa
 import ReactiveSwift
+import FLUtilities
 
 class ArticlesViewController: UIViewController {
 
@@ -30,7 +31,7 @@ class ArticlesViewController: UIViewController {
     
     private func prepareArticleModel() {
         let disposable = self.articleViewModel.disposable
-        self.articleViewModel.fetchArticles(from: self.source)
+        self.fetchArticles(from: source)
         disposable += self.view.reactive.showLoader <~ self.articleViewModel.loading.map { $0 }
         disposable += self.articleViewModel.cellModels.signal.observeValues({ _ in
             self.tableView.reloadData()
@@ -39,6 +40,10 @@ class ArticlesViewController: UIViewController {
             guard let error = error else { return }
             self.handleError(error)
         })
+    }
+    
+    private func fetchArticles(from source: Source, sortyBy: SortBy = .top) {
+        self.articleViewModel.fetchArticles(from: source, sortBy: sortyBy)
     }
 }
 
@@ -89,4 +94,30 @@ extension ArticlesViewController {
         super.prepare(for: segue, sender: sender)
 
     }
+}
+
+
+extension ArticlesViewController {
+    @IBAction func handleSortByTapped(_ sender: UIBarButtonItem) {
+        
+        let top = ActionInterface(title: SortBy.top.value, style: .default)
+        let latest = ActionInterface(title: SortBy.latest.value, style: .default)
+        let popular = ActionInterface(title: SortBy.popular.value, style: .default)
+        let cancel = ActionInterface(title: "Cancel", style: .cancel)
+        
+        self.showActionSheet(title: "SortBy", message: nil,
+                             actionInterfaceList: [top, latest, popular, cancel]) { interface in
+                                
+            switch interface.title {
+            case SortBy.top.value:
+                self.fetchArticles(from: self.source, sortyBy: .top)
+            case SortBy.latest.value:
+                self.fetchArticles(from: self.source, sortyBy: .latest)
+            case SortBy.popular.value:
+                self.fetchArticles(from: self.source, sortyBy: .popular)
+            default: break
+            }
+        }
+    }
+    
 }

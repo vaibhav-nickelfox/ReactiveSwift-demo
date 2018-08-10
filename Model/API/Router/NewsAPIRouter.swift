@@ -10,7 +10,7 @@ import Foundation
 import FoxAPIKit
 
 public enum NewsAPIRouter: BaseRouter {
-    case articles(source: String)
+    case articles(source: String, sortBy: String)
     case sources
 }
 
@@ -36,10 +36,10 @@ extension NewsAPIRouter {
         switch self {
         case .sources:
             parameters = ["language": "en"]
-        case .articles(let source):
+        case .articles(let source, let sortBy):
             parameters = ["apiKey": APIConfig.apikey,
                           "source": source,
-                          "sortBy": "top"]
+                          "sortBy": sortBy]
         }
         return parameters
     }
