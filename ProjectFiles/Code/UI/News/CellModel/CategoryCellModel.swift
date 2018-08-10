@@ -9,12 +9,7 @@
 import Foundation
 import Model
 
-protocol CategoryCellProtocol {
-    var title: String { get }
-    var sources: [Source] { get }
-}
-
-struct CategoryCellModel: CategoryCellProtocol {
+struct CategoryCellModel {
     private let category: Model.Category
     
     init(_ category: Model.Category) {

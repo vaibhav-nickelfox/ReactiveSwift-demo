@@ -9,16 +9,7 @@
 import Foundation
 import Model
 
-protocol ArticleCellProtocol {
-    var title: String { get }
-    var description: String { get }
-    var source: String { get }
-    var urlLink: String { get }
-    var imageLink: String { get }
-    var date: String { get }
-}
-
-struct ArticleCellModel: ArticleCellProtocol {
+struct ArticleCellModel {
     
     private let article: Article
     

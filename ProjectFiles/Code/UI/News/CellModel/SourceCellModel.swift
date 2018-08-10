@@ -9,11 +9,7 @@
 import Foundation
 import Model
 
-protocol SourceCellProtocol {
-    var title: String { get }
-}
-
-struct SourceCellModel: SourceCellProtocol {
+struct SourceCellModel {
     private let source: Source
     
     init(_ source: Source) {
