@@ -88,7 +88,9 @@ extension ArticlesViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch (segue.identifier, segue.destination, sender) {
         case (Segue.webView, let vc as NewsWebViewController, let loadUrl as String):
-            vc.loadUrl = loadUrl
+            guard let url = URL(string: loadUrl) else { return }
+            let newsViewModel = NewsViewModel(loadUrl: url)
+            vc.newsViewModel = newsViewModel
         default: break
         }
         super.prepare(for: segue, sender: sender)

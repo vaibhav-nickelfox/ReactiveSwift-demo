@@ -39,7 +39,6 @@ class CategoryViewController: UIViewController {
             self.handleError(error)
         })
         
-//        self.categoryViewModel.disposable += self.categoryViewModel.cellModels.producer.on(starting: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, started: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, event: <#T##((Signal<[CategoryCellModel], NoError>.Event) -> Void)?##((Signal<[CategoryCellModel], NoError>.Event) -> Void)?##(Signal<[CategoryCellModel], NoError>.Event) -> Void#>, failed: <#T##((NoError) -> Void)?##((NoError) -> Void)?##(NoError) -> Void#>, completed: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, interrupted: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, terminated: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, disposed: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>, value: <#T##(([CategoryCellModel]) -> Void)?##(([CategoryCellModel]) -> Void)?##([CategoryCellModel]) -> Void#>)
     }
 }
 
@@ -88,7 +87,9 @@ extension CategoryViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch (segue.identifier, segue.destination, sender) {
         case (Segue.sourcesView, let vc as SourcesViewController, let sources as [Source]):
-            vc.sources = sources
+            let sourceViewModel = SourceViewModel()
+            sourceViewModel.setSources(sources)
+            vc.sourceViewModel = sourceViewModel
         default: break
         }
         super.prepare(for: segue, sender: sender)

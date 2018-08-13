@@ -14,7 +14,7 @@ class NewsWebViewController: UIViewController {
     @IBOutlet var webViewContainer: UIView!
     
     var webView: WKWebView!
-    var loadUrl: String?
+    var newsViewModel: NewsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +28,7 @@ extension NewsWebViewController: WKNavigationDelegate {
         self.webView = WKWebView()
         self.webView.navigationDelegate = self
         self.webViewContainer.addAndFitSubview(view: self.webView)
-        guard let urlLink = self.loadUrl,
-            let url = URL(string: urlLink) else { return }
-        self.webView.load(URLRequest(url: url))
+        self.webView.load(URLRequest(url: self.newsViewModel.loadUrl))
         self.showLoader()
     }
     

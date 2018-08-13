@@ -8,6 +8,7 @@
 
 import UIKit
 import Model
+import ReactiveSwift
 
 class SourcesViewController: UIViewController {
     
@@ -24,6 +25,7 @@ class SourcesViewController: UIViewController {
     }
     
     var sources: [Source] = []
+    var sourceViewModel: SourceViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +34,13 @@ class SourcesViewController: UIViewController {
     }
 
     func prepareSourceModel() {
-        self.sourceCellModels = self.sources.map {
-            SourceCellModel($0)
-        }
+        self.sourceViewModel.disposable += self.sourceViewModel.cellModels.signal.observeValues({ _ in
+            self.tableView.reloadData()
+        })
+        self.sourceViewModel.disposable += self.sourceViewModel.error.signal.observeValues({ error in
+            guard let error = error else { return }
+            self.handleError(error)
+        })
     }
 }
 
@@ -47,12 +53,12 @@ extension SourcesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sourceCellModels.count
+        return self.sourceViewModel.rowCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueCell(SourceTableCell.self, for: indexPath)
-        cell.item = self.sourceCellModels[indexPath.row]
+        cell.item = self.sourceViewModel.cellModel(at: indexPath)
         return cell
     }
     
@@ -69,7 +75,7 @@ extension SourcesViewController: UITableViewDataSource {
 //MARK: UITableViewDelegate
 extension SourcesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let source = self.sources[indexPath.row]
+        let source = self.sourceViewModel.sources[indexPath.row]
         self.performSegue(withIdentifier: Segue.articleView, sender: source)
     }
 }
