@@ -27,6 +27,10 @@ class CategoryViewModel {
         })
     }
     
+    deinit {
+        self.disposable.dispose()
+    }
+    
     private(set) public var sources: [Source] = [] {
         didSet {
             self.cellModels.value = Model.Category.categorise(sources: sources).map {
