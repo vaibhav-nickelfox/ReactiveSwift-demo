@@ -19,9 +19,12 @@ class CategoryViewModel {
     
     init() {
         self.disposable += self.loading <~ self.fetchSourceAction.isExecuting
+        
+        
         self.disposable += self.fetchSourceAction.values.observeValues({ sources in
             self.sources = sources
         })
+        
         self.disposable += self.fetchSourceAction.errors.observeValues({ error in
             self.error.value = error
         })
@@ -51,7 +54,11 @@ extension CategoryViewModel {
     }
     
     func fetchSources() {
-        self.disposable += self.fetchSourceAction.apply().start()
+        self.disposable += self.fetchSourceAction.apply().on(failed: { [weak self] error in
+            
+        }, value: { [weak self] sources in
+            
+        }).start()
     }
     
     var rowCount: Int {

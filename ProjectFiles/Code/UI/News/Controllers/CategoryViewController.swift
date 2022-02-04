@@ -30,7 +30,9 @@ class CategoryViewController: UIViewController {
     private func prepareCategoryModel() {
         let disposable = self.categoryViewModel.disposable
         self.categoryViewModel.fetchSources()
-        disposable += self.view.reactive.showLoader <~ self.categoryViewModel.loading.map { $0 }
+        
+        disposable += self.view.reactive.showLoader <~ self.categoryViewModel.loading
+        
         disposable += self.categoryViewModel.cellModels.signal.observeValues({ _ in
             self.tableView.reloadData()
         })
